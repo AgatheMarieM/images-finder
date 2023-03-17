@@ -7,6 +7,8 @@ interface SearchEngineProps {
 
 export default function SearchEngine({ query }: SearchEngineProps) {
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const [searchResults, setSearchResults] = useState<string[]>([]);
+
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
         event.preventDefault();
