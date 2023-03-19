@@ -1,0 +1,13 @@
+.container {
+    width: 30%;
+    margin: 10px;
+}
+
+.image {
+
+    background-size: cover;
+    background-position: center;
+    padding: 50%;
+    width: 100%;
+
+}
