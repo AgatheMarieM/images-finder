@@ -2,16 +2,15 @@ import "./Image.css";
 
 interface ImageProps {
     source: string;
-    index: number
+    index: number;
 }
 
 
-export default function Image({ source, index }: ImageProps) {
+export default function Image({ source }: ImageProps) {
 
     return (
         <div className="container">
-            <div className="image" style={{ backgroundImage: `url(${source})` }} key={index}>
-                {/* <img src={source} alt="#"/> */}
+            <div className="image" style={{ backgroundImage: `url(${source})` }}>
             </div>
         </div>
     )
