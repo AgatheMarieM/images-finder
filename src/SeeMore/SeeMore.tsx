@@ -22,7 +22,6 @@ export default function SeeMore({ results, setResults, page, setPage, query}: Se
     }
 
 
-
     function incrementPage(event: React.MouseEvent<HTMLElement>) {
         event.preventDefault();
         setPage(page + 1);
