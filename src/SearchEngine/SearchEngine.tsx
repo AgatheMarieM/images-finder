@@ -1,27 +1,33 @@
 import { useState } from "react";
-
+import axios, { AxiosResponse } from "axios";
 
 interface SearchEngineProps {
-    query: string
+    results: any[];
+    setResults: any;
+
 }
 
-export default function SearchEngine({ query }: SearchEngineProps) {
-    const [searchQuery, setSearchQuery] = useState<string>("flowers");
-    const [searchResults, setSearchResults] = useState<string[]>([]);
+export default function SearchEngine({ results, setResults }: SearchEngineProps) {
+    const [query, setQuery] = useState<string>("");
 
     const apiKey = `34572071-131273e105e5eb7248557f286`;
-    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular`;
-   
+    let page = 1;
+    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;
+
+
+    function handleResponse(response: AxiosResponse) {
+        setResults(response.data.hits);
+        console.log(results);
+    }
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
         event.preventDefault();
-        setSearchQuery(event.target.value);
-        console.log(event.target.value);
+        setQuery(event.target.value);
     }
 
     function handleSubmit(event: React.MouseEvent<HTMLInputElement>) {
         event.preventDefault();
-        alert("query submitted!");
+        axios.get(apiUrl).then(handleResponse);
 
     }
 
@@ -29,7 +35,10 @@ export default function SearchEngine({ query }: SearchEngineProps) {
         <form>
             <input type="text" placeholder="search for..." onChange={handleInput} />
             <input type="submit" value="go!" onClick={handleSubmit} />
-            <p>{searchQuery}</p>
+            {
+                results.length > 0 && <h3>Results for "{query}"</h3>
+
+            }
         </form>
     )
 }
