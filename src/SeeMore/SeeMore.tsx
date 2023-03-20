@@ -19,7 +19,6 @@ export default function SeeMore({ results, setResults, page, setPage, query }: S
     function handleResponse(response: AxiosResponse) {
         let updatedResults = results.concat(response.data.hits);
         setResults(updatedResults);
-        console.log(results);
     }
 
 
