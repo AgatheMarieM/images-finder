@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { useState } from "react";
 import "./SearchEngine.css";
 
 interface SearchEngineProps {
@@ -11,14 +12,22 @@ interface SearchEngineProps {
 }
 
 export default function SearchEngine({ results, setResults, page, query, setQuery }: SearchEngineProps) {
-
+    const [message, setMessage] = useState("");
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;
 
 
+    function updateMessage(data: any){
+        if(data.length){
+            setMessage(`Results for ${query}`)
+        } else {
+            setMessage(`No results can be found`)
+        }
+
+    }
     function handleResponse(response: AxiosResponse) {
         setResults(response.data.hits);
-        console.log(results);
+        updateMessage(response.data.hits); //needs useEffect to do callback directly here? improve later
     }
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
@@ -36,11 +45,8 @@ export default function SearchEngine({ results, setResults, page, query, setQuer
             <form>
                 <input type="text" placeholder="search for..." onChange={handleInput} />
                 <input type="submit" value="go!" onClick={handleSubmit} />
-                {
-                    results.length > 0 && <h3>Results for "{query}"</h3>
-
-                }
             </form>
+            <div>{message}</div>
         </>
 
     )
