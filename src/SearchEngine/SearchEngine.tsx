@@ -41,13 +41,13 @@ export default function SearchEngine({ results, setResults, page, query, setQuer
     }
 
     return (
-        <>
-            <form>
+        <div className="search-engine">
+            <form className="search-form">
                 <input type="text" placeholder="search for..." onChange={handleInput} />
                 <input type="submit" value="go!" onClick={handleSubmit} />
             </form>
-            <div>{message}</div>
-        </>
+            <h2>{message}</h2>
+        </div>
 
     )
 }
