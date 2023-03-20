@@ -1,0 +1,10 @@
+.search-engine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.search-form {
+    margin: 0 auto;
+} 
