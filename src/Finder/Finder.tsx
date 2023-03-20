@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import SearchEngine from "../SearchEngine/SearchEngine";
 import Images from "../Images/Images";
 import SeeMore from "../SeeMore/SeeMore";
+import Footer from "../Footer/Footer";
 import { useState } from "react";
 
 export default function Finder() {
@@ -26,6 +27,8 @@ export default function Finder() {
                 query={searchQuery}
                 page={searchPage}
                 setPage={setSearchPage} />
+
+            {(searchResults.length) ? <Footer /> : null}
         </>
     )
 }
