@@ -21,14 +21,19 @@ export default function Finder() {
                 page={searchPage} />
             <Images
                 results={searchResults} />
-            <SeeMore
-                results={searchResults}
-                setResults={setSearchResults}
-                query={searchQuery}
-                page={searchPage}
-                setPage={setSearchPage} />
 
-            {(searchResults.length) ? <Footer /> : null}
+            {(searchResults.length) ?
+                <SeeMore
+                    results={searchResults}
+                    setResults={setSearchResults}
+                    query={searchQuery}
+                    page={searchPage}
+                    setPage={setSearchPage} />
+                : null}
+
+            {(searchResults.length) ?
+                <Footer />
+                : null}
         </>
     )
 }
