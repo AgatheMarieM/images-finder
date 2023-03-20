@@ -6,9 +6,12 @@ interface SearchEngineProps {
 }
 
 export default function SearchEngine({ query }: SearchEngineProps) {
-    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [searchQuery, setSearchQuery] = useState<string>("flowers");
     const [searchResults, setSearchResults] = useState<string[]>([]);
 
+    const apiKey = `34572071-131273e105e5eb7248557f286`;
+    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular`;
+   
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
         event.preventDefault();
