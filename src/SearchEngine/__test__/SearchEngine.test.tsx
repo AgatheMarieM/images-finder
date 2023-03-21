@@ -1,16 +1,27 @@
 
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import SearchEngine from "../SearchEngine";
 
-/* describe('something truthy and falsy', () => {
-  it('true to be true', () => {
-    expect(true).toBe(true);
-  });
+const mockedSearch = vi.fn();
 
-  it('false to be false', () => {
-    expect(false).toBe(false);
-  });
-}); */
+describe('SearchEngine tests', () => {
+    //1 Testing if input is red correctly
+    it('user input red correctly', () => {
+        render(
+            <SearchEngine
+                setResults={mockedSearch}
+                query={""}
+                setQuery={mockedSearch}
+                page={1} />
+        );
+        const inputElement = screen.getByPlaceholderText("search for...") as HTMLInputElement;
+        fireEvent.change(inputElement, {target: {value: 'dogs'}});
+        expect(inputElement.value).toBe('dogs');
+    })
 
-//1 Testing if input is red correctly
+    //2 Testing if input is red correctly
 
+
+
+})
