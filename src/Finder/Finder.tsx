@@ -13,8 +13,7 @@ export default function Finder() {
     return (
         <>
             <Header />
-            <SearchEngine
-                results={searchResults}
+            <SearchEngine            
                 setResults={setSearchResults}
                 query={searchQuery}
                 setQuery={setSearchQuery}
