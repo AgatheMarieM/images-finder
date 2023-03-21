@@ -19,7 +19,7 @@ export default function SearchEngine( {setResults, page, query, setQuery }: Sear
 
     function updateMessage(data: any){
         if(data.length){
-            setMessage(`Results for ${query}`)
+            setMessage(`Results for '${query}'`)
         } else {
             setMessage(`No results can be found`)
         }
