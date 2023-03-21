@@ -1,5 +1,18 @@
 .SeeMoreButton {
     display:flex;
     flex-direction: row;
-    justify-content: center;    
+    justify-content: center;
+    margin: 10px auto;    
+}
+
+.button {
+    border: 1px solid grey;
+    border-radius: 21px;
+    font-size: 1.3rem;
+    padding: 1%;
+}
+
+.button:hover {
+    font-size: 140%;
+    cursor:pointer;
 }
