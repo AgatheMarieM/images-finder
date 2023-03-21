@@ -1,10 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import { useState } from "react";
 import "./SearchEngine.css";
-import {FinderProps} from "../Interface";
+import {SearchEngineProps} from "../Interface";
 
 
-export default function SearchEngine( {setResults, page, query, setQuery }: FinderProps) {
+export default function SearchEngine( {setResults, page, query, setQuery }: SearchEngineProps) {
     const [message, setMessage] = useState("");
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;

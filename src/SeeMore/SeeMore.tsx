@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import "./SeeMore.css"
-import {FinderProps} from "../Interface";
+import {SeeMoreProps} from "../Interface";
 
-export default function SeeMore(props: FinderProps) {
+export default function SeeMore(props: SeeMoreProps) {
 
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${props.query}&image_type=photo&order=popular&page=${props.page}`;
