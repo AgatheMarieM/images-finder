@@ -1,12 +1,8 @@
 import "./Image.css";
-
-interface ImageProps {
-    source: string;
-    index: number;
-}
+import {FinderProps} from "../Interface";
 
 
-export default function Image({ source }: ImageProps) {
+export default function Image({ source }: FinderProps) {
 
     return (
         <div className="container">

@@ -1,30 +1,22 @@
 import axios, { AxiosResponse } from "axios";
 import "./SeeMore.css"
+import {FinderProps} from "../Interface";
 
-interface SeeMoreProps {
-    results: any[];
-    setResults: any;
-    page: number;
-    setPage: any;
-    query: string;
-
-}
-
-export default function SeeMore({ results, setResults, page, setPage, query }: SeeMoreProps) {
+export default function SeeMore(props: FinderProps) {
 
     const apiKey = `34572071-131273e105e5eb7248557f286`;
-    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;
+    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${props.query}&image_type=photo&order=popular&page=${props.page}`;
 
 
     function handleResponse(response: AxiosResponse) {
-        let updatedResults = results.concat(response.data.hits);
-        setResults(updatedResults);
+        let updatedResults = props.results.concat(response.data.hits);
+        props.setResults(updatedResults);
     }
 
 
     function incrementPage(event: React.MouseEvent<HTMLElement>) {
         event.preventDefault();
-        setPage(page + 1);
+        props.setPage(props.page + 1);
         axios.get(apiUrl).then(handleResponse);
     }
 

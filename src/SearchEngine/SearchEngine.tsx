@@ -1,17 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import { useState } from "react";
 import "./SearchEngine.css";
+import {FinderProps} from "../Interface";
 
-interface SearchEngineProps {
-   
-    setResults: any;
-    page: number;
-    query: string;
-    setQuery: any;
 
-}
-
-export default function SearchEngine( {setResults, page, query, setQuery }: SearchEngineProps) {
+export default function SearchEngine( {setResults, page, query, setQuery }: FinderProps) {
     const [message, setMessage] = useState("");
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;
@@ -44,9 +37,9 @@ export default function SearchEngine( {setResults, page, query, setQuery }: Sear
         <div className="search-engine">
             <form className="search-form">
                 <input type="text" placeholder="search for..." onChange={handleInput} />
-                <input type="submit" value="go!" onClick={handleSubmit} />
+                <input type="submit" value="go!" onClick={handleSubmit} data-testid="go-button" />
             </form>
-            <h2>{message}</h2>
+            <h2 data-testid="message">{message}</h2>
         </div>
 
     )
