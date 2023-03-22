@@ -2,6 +2,7 @@ export interface SearchEngineProps {
     page: number;
     query: string;
     setQuery: any;
+    results: any[];
     setResults: any;
 }
 
@@ -12,6 +13,7 @@ export interface ImagesProps {
 
 export interface ImageProps {
     source: string;
+
 }
 
 export interface SeeMoreProps {
