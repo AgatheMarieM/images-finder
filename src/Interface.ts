@@ -1,4 +1,5 @@
 export interface SearchEngineProps {
+    apiUrl: string;
     page: number;
     query: string;
     setQuery: any;
@@ -17,6 +18,7 @@ export interface ImageProps {
 }
 
 export interface SeeMoreProps {
+    apiUrl: string;
     results: any[];
     setResults: any;
     page: number;
