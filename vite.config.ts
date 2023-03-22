@@ -11,7 +11,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    css: true, //to ensure that everything is visible
-    setupFiles: './tests/setup.js',
+    css: true, 
+    setupFiles: './tests/setup.ts',
   }
 })
