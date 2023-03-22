@@ -8,6 +8,21 @@
     background-size: cover;
     background-position: center;
     padding: 50%;
+    position:relative;
     width: 100%;
+}
 
+.subtitle {
+    font-size: 0.7rem;
+    position: absolute;
+    color: white;
+    bottom: 1%;
+    right: 5%;
+    text-decoration: none;
+}
+
+.subtitle:hover {
+    cursor: pointer;
+    font-style: italic;
+   
 }
