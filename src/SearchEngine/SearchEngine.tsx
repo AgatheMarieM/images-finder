@@ -4,12 +4,9 @@ import "./SearchEngine.css";
 import { SearchEngineProps } from "../Interface";
 
 
-export default function SearchEngine({ results, setResults, page, query, setQuery }: SearchEngineProps) {
+export default function SearchEngine({ apiUrl, results, setResults, query, setQuery }: SearchEngineProps) {
     const [message, setMessage] = useState("");
     const [totalHits, setTotalHits] = useState();
-    const apiKey = `34572071-131273e105e5eb7248557f286`;
-    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&order=popular&page=${page}`;
-
 
     function updateMessage() {
         if (totalHits === 0) {
@@ -28,7 +25,6 @@ export default function SearchEngine({ results, setResults, page, query, setQuer
     function handleResponse(response: AxiosResponse) {
         setResults(response.data.hits);
         setTotalHits(response.data.total);
-
     }
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {

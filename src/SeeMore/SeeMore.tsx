@@ -1,12 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import "./SeeMore.css"
-import {SeeMoreProps} from "../Interface";
+import { SeeMoreProps } from "../Interface";
 
 export default function SeeMore(props: SeeMoreProps) {
-
-    const apiKey = `34572071-131273e105e5eb7248557f286`;
-    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${props.query}&image_type=photo&order=popular&page=${props.page}`;
-
 
     function handleResponse(response: AxiosResponse) {
         let updatedResults = props.results.concat(response.data.hits);
@@ -17,13 +13,13 @@ export default function SeeMore(props: SeeMoreProps) {
     function incrementPage(event: React.MouseEvent<HTMLElement>) {
         event.preventDefault();
         props.setPage(props.page + 1);
-        axios.get(apiUrl).then(handleResponse);
+        axios.get(props.apiUrl).then(handleResponse);
     }
 
     return (
         <>
             <div className="SeeMoreButton">
-                <button className="button" onClick={incrementPage}>See more</button>
+                <button className="button" data-testid="seemore-button" onClick={incrementPage}>See more</button>
             </div>
         </>
 
