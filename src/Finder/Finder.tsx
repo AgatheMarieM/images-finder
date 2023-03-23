@@ -15,6 +15,7 @@ export default function Finder() {
     return (
         <>
             <Header />
+            {/* component is always rendered, which means that an API call will be made even if the search query is empty? */}
             <SearchEngine
                 apiUrl={apiUrl}
                 results={searchResults}
@@ -23,10 +24,11 @@ export default function Finder() {
                 setQuery={setSearchQuery}
                 page={searchPage} />
 
-            <Images
+            {searchQuery && <Images
                 results={searchResults} />
+            }
 
-            {(searchResults.length) ?
+            {searchResults.length > 0 && searchQuery &&
                 <SeeMore
                     apiUrl={apiUrl}
                     results={searchResults}
@@ -34,11 +36,11 @@ export default function Finder() {
                     query={searchQuery}
                     page={searchPage}
                     setPage={setSearchPage} />
-                : null}
+            }
 
-            {(searchResults.length) ?
+            {searchResults.length > 0 && searchQuery &&
                 <Footer />
-                : null}
+            }
         </>
     )
 }
