@@ -10,8 +10,8 @@ export default function SearchEngine({ apiUrl, results, setResults, query, setQu
 
     function updateMessage() {
         if (totalHits === 0) {
-            setMessage(`No results can be found`)
-        } else if (results.length) {
+            setMessage(`No results could be found`)
+        } else if (results.length>0) {
             setMessage(`${totalHits} Results for '${query}'`)
         } else {
             setMessage(``)
@@ -34,7 +34,11 @@ export default function SearchEngine({ apiUrl, results, setResults, query, setQu
 
     function handleSubmit(event: React.MouseEvent<HTMLInputElement>) {
         event.preventDefault();
-        axios.get(apiUrl).then(handleResponse);
+        if(query){
+                    axios.get(apiUrl).then(handleResponse);
+        } else {
+            setMessage(`Please type a query`)
+        }
     }
 
     return (
