@@ -1,4 +1,4 @@
-/* const mockResponse = {
+const mockResponse = {
     data: {
         hits: [
             {
@@ -7,9 +7,9 @@
         ],
         total: 1
     }
-}   */
+}  
 
-const mockResponse = [];
+// const mockResponse = [];
 
 
 export default {

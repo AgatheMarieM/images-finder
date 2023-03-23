@@ -1,5 +1,5 @@
 import './App.css';
-import Finder from './Finder/Finder';
+import Finder from './components/Finder/Finder';
 
 
 function App() {

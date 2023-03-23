@@ -1,5 +1,5 @@
 import "./Image.css";
-import { ImageProps } from "../Interface";
+import { ImageProps } from "../../Interface";
 
 
 export default function Image({ source }: ImageProps) {

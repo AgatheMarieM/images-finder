@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import "./SeeMore.css"
-import { SeeMoreProps } from "../Interface";
+import { SeeMoreProps } from "../../Interface";
 
 export default function SeeMore(props: SeeMoreProps) {
 

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import "./SearchEngine.css";
-import { SearchEngineProps } from "../Interface";
+import { SearchEngineProps } from "../../Interface";
 
 
 export default function SearchEngine({ apiUrl, results, setResults, query, setQuery }: SearchEngineProps) {

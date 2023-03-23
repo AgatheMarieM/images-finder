@@ -15,7 +15,6 @@ export default function Finder() {
     return (
         <>
             <Header />
-            {/* component is always rendered, which means that an API call will be made even if the search query is empty? */}
             <SearchEngine
                 apiUrl={apiUrl}
                 results={searchResults}
@@ -31,6 +30,7 @@ export default function Finder() {
             {searchResults.length > 0 && searchQuery &&
                 <>
                     <SeeMore
+                    data-testid="see-more-comp"
                         apiUrl={apiUrl}
                         results={searchResults}
                         setResults={setSearchResults}
