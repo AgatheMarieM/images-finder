@@ -29,17 +29,18 @@ export default function Finder() {
             }
 
             {searchResults.length > 0 && searchQuery &&
-                <SeeMore
-                    apiUrl={apiUrl}
-                    results={searchResults}
-                    setResults={setSearchResults}
-                    query={searchQuery}
-                    page={searchPage}
-                    setPage={setSearchPage} />
-            }
+                <>
+                    <SeeMore
+                        apiUrl={apiUrl}
+                        results={searchResults}
+                        setResults={setSearchResults}
+                        query={searchQuery}
+                        page={searchPage}
+                        setPage={setSearchPage} />
 
-            {searchResults.length > 0 && searchQuery &&
-                <Footer />
+                    <Footer />
+                </>
+
             }
         </>
     )
