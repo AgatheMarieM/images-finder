@@ -14,7 +14,7 @@ export default function Image({ source }: ImageProps) {
 
     function toggleIcon() {
         setToggle(!toggle);
-        (heartIcon == faRegularHeart) ? setHeartIcon(faSolidHeart) : setHeartIcon(faRegularHeart);
+        setHeartIcon(heartIcon === faRegularHeart ? faSolidHeart : faRegularHeart);
     }
 
     return (
