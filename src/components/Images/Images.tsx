@@ -8,7 +8,7 @@ export default function Images({ results, index }: ImagesProps) {
         <div className="images" data-testid="images-box" >
             {results.map((result, index) => {
                 return (
-                    <Image index={index} source={result.webformatURL} />
+                    <Image key={index} source={result.webformatURL} />
                 )
             })}
         </div>
