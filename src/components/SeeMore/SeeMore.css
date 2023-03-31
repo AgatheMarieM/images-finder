@@ -1,18 +1,22 @@
 .SeeMoreButton {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 10px auto;    
+    margin: 10px auto;
 }
 
 .button {
-    border: 1px solid grey;
+    background-color: white;
+    color: blueviolet;
+    border: 1px solid blueviolet;
     border-radius: 21px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 1%;
 }
 
 .button:hover {
-    font-size: 140%;
-    cursor:pointer;
+    background-color: blueviolet;
+    color: white;
+    font-size: 110%;
+    cursor: pointer;
 }
