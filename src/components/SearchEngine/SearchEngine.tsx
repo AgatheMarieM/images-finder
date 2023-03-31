@@ -53,3 +53,5 @@ const SearchEngine = ({ apiUrl, results, setResults, query, setQuery }: SearchEn
 
     )
 }
+
+export default SearchEngine
