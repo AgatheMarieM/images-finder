@@ -1,11 +1,12 @@
 import './App.css';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import FinderPage from './pages/FinderPage/FinderPage';
+import { FC } from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Header from './components/Header/Header';
 
 
-const App = () => {
+const App: FC = () => {
   return (
     <BrowserRouter>
       <nav>
