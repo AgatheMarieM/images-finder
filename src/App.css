@@ -1,4 +1,4 @@
-header nav {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -7,11 +7,16 @@ header nav {
     padding: 2%;
 }
 
-header nav a {
+nav .image-finder {
+    margin-right: auto;
+}
+
+nav a {
     text-decoration: none;
 }
 
-header nav a.active {
+nav a.active {
     color: blueviolet;
     border-bottom: 1px solid blueviolet;
+    margin-bottom: 2%;
 }
