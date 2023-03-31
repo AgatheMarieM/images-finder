@@ -2,9 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
 .search-form {
     margin: 0 auto;
-} 
+}
+
+.search-engine h2 {
+    text-align: center;
+}
