@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import "./SeeMore.css"
 import { SeeMoreProps } from "../../Interface";
 
-export default function SeeMore(props: SeeMoreProps) {
+const SeeMore = (props: SeeMoreProps) => {
 
     function handleResponse(response: AxiosResponse) {
         let updatedResults = props.results.concat(response.data.hits);
@@ -25,3 +25,5 @@ export default function SeeMore(props: SeeMoreProps) {
 
     )
 }
+
+export default SeeMore;

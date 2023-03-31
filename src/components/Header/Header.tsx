@@ -1,7 +1,11 @@
 import "./Header.css";
+import { FC } from "react";
 
-export default function Header() {
+
+ const Header: FC = () => {
     return (
         <h3>Images Finder</h3>
     )
 }
+
+export default Header

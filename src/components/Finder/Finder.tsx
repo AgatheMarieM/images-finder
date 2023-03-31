@@ -5,12 +5,15 @@ import SeeMore from "../SeeMore/SeeMore";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 
-export default function Finder() {
+const Finder = () => {
+    
     const [searchResults, setSearchResults] = useState([]);
     const [searchPage, setSearchPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [favorites, setFavorites] = useState<string[]>([]);
     //const [favorites, setFavorites] = useState<string[]>(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    const apiKey = `34572071-131273e105e5eb7248557f286`;
+    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular&page=${searchPage}`;
 
     useEffect(() => {
         JSON.parse(localStorage.getItem('favorites') || '[]'); //on init, it is getting either key favorites or empty list       
@@ -20,9 +23,6 @@ export default function Finder() {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites]
     ); 
-
-    const apiKey = `34572071-131273e105e5eb7248557f286`;
-    const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular&page=${searchPage}`;
 
     return (
         <>
@@ -60,3 +60,5 @@ export default function Finder() {
         </>
     )
 }
+
+export default Finder

@@ -4,7 +4,7 @@ import "./SearchEngine.css";
 import { SearchEngineProps } from "../../Interface";
 
 
-export default function SearchEngine({ apiUrl, results, setResults, query, setQuery }: SearchEngineProps) {
+const SearchEngine = ({ apiUrl, results, setResults, query, setQuery }: SearchEngineProps) => {
     const [message, setMessage] = useState("");
     const [totalHits, setTotalHits] = useState();
 
@@ -23,6 +23,7 @@ export default function SearchEngine({ apiUrl, results, setResults, query, setQu
     }, [results, totalHits]); //update message whenever results or totalHits change  
 
     function handleResponse(response: AxiosResponse) {
+        
         setResults(response.data.hits);
         setTotalHits(response.data.total);
     }
@@ -44,7 +45,7 @@ export default function SearchEngine({ apiUrl, results, setResults, query, setQu
     return (
         <div className="search-engine">
             <form className="search-form">
-                <input type="text" placeholder="search for..." onChange={handleInput} />
+                <input type="text" placeholder="search for..." onChange={handleInput} data-testid="search-for" />
                 <input type="submit" value="go!" onClick={handleSubmit} data-testid="go-button" />
             </form>
             <h2 data-testid="message">{message}</h2>
