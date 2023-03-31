@@ -1,10 +1,15 @@
+import './Favorites.css';
+import Pager from '../Pager/Pager';
+
+
 const Favorites = () => {
     return (
-        <>
-            <h1>
+        <div className='Favorites'>
+            <h2>
                 Favorite images
-            </h1>
-        </>
+            </h2>
+            <Pager />
+        </div>
 
     )
 }
