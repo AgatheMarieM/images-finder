@@ -9,8 +9,8 @@ const App = () => {
     <BrowserRouter>
       <header>
         <nav>
-          <Link to='/'>Finder</Link>
-          <Link to='/favorites'>Favorites</Link>
+          <NavLink to='/'>Home </NavLink>
+          <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
       </header>
       <Routes>
