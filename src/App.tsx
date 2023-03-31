@@ -1,13 +1,23 @@
 import './App.css';
-import Finder from './components/Finder/Finder';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
+import FinderPage from './pages/FinderPage/FinderPage';
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 
 
-function App() {
-
+const App = () => {
   return (
-    <div className="App">
-      <Finder />
-    </div>
+    <BrowserRouter>
+      <header>
+        <nav>
+          <Link to='/'>Finder</Link>
+          <Link to='/favorites'>Favorites</Link>
+        </nav>
+      </header>
+      <Routes>
+        <Route path='/' element={<FinderPage />} />
+        <Route path='/favorites' element={<FavoritesPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
