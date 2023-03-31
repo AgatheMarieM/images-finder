@@ -1,4 +1,4 @@
-export interface SearchEngineProps {
+export type SearchEngineProps {
     apiUrl: string;
     page: number;
     query: string;
@@ -7,17 +7,22 @@ export interface SearchEngineProps {
     setResults: any;
 }
 
-export interface ImagesProps {
+export type ImagesProps {
     results: any[];
     index: number;
+    favorites: any[];
+    setFavorites: any;
+   
 }
 
-export interface ImageProps {
+export type ImageProps {
     source: string;
-
+    id: number;
+    favorites: any[];
+    setFavorites: any;
 }
 
-export interface SeeMoreProps {
+export type SeeMoreProps {
     apiUrl: string;
     results: any[];
     setResults: any;
@@ -26,3 +31,6 @@ export interface SeeMoreProps {
     query: string;
 }
 
+export type FavoritesProps {
+    favorites: any[];
+}
