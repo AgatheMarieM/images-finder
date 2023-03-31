@@ -3,19 +3,32 @@ import SearchEngine from "../SearchEngine/SearchEngine";
 import Images from "../Images/Images";
 import SeeMore from "../SeeMore/SeeMore";
 import Footer from "../Footer/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Finder() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchPage, setSearchPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const [favorites, setFavorites] = useState<string[]>([]);
+    //const [favorites, setFavorites] = useState<string[]>(JSON.parse(localStorage.getItem('favorites') || '[]'));
+
+    useEffect(() => {
+        JSON.parse(localStorage.getItem('favorites') || '[]'); //on init, it is getting either key favorites or empty list       
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }, [favorites]
+    ); 
+
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular&page=${searchPage}`;
 
     return (
         <>
-            <Header />
+            
             <SearchEngine
+                data-testid='search-engine'
                 apiUrl={apiUrl}
                 results={searchResults}
                 setResults={setSearchResults}
@@ -24,13 +37,15 @@ export default function Finder() {
                 page={searchPage} />
 
             {searchQuery && <Images
-                results={searchResults} />
+                results={searchResults} 
+                favorites={favorites} 
+                setFavorites={setFavorites}/>
             }
 
             {searchResults.length > 0 && searchQuery &&
                 <>
                     <SeeMore
-                    data-testid="see-more-comp"
+                        data-testid="see-more-comp"
                         apiUrl={apiUrl}
                         results={searchResults}
                         setResults={setSearchResults}
