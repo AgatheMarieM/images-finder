@@ -1,0 +1,17 @@
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1rem;
+    max-width: 1200px;
+    padding: 2%;
+}
+
+header nav a {
+    text-decoration: none;
+}
+
+header nav a.active {
+    color: blueviolet;
+    border-bottom: 1px solid blueviolet;
+}
