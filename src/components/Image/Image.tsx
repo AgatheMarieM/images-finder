@@ -9,22 +9,29 @@ import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-i
 const Image = ({ source, favorites, setFavorites }: ImageProps) => {
     const [favorite, setFavorite] = useState(false);
 
+    useEffect(() => {
+        setFavorite(false)
+    }, [source])
+
     function toggleIcon() {
         if (favorite) {
             setFavorites(favorites.filter((fav) => fav !== source));
             setFavorite(false);
         } else {
             setFavorites([...favorites, source]);
+            /* setFavorites((prevFavorites) => {
+                return [...prevFavorites, source];
+            }) */
             setFavorite(true);
         }
     }
 
     return (
-        <Card className="image-container">        
-                <div className="image" data-testid="image" style={{ backgroundImage: `url(${source})` }}>
-                    <a className="subtitle" href={source} target="_blank">© Pixabay</a>
-                    <FontAwesomeIcon className="bookmark-icon" onClick={toggleIcon} icon={favorite ? faBookmarkSolid : faBookmarkRegular} />
-                </div>          
+        <Card className="image-container">
+            <div className="image" data-testid="image" style={{ backgroundImage: `url(${source})` }}>
+                <a className="subtitle" href={source} target="_blank">© Pixabay</a>
+                <FontAwesomeIcon className="bookmark-icon" onClick={toggleIcon} icon={favorite ? faBookmarkSolid : faBookmarkRegular} />
+            </div>
         </Card>
     )
 }
