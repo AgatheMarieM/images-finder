@@ -1,10 +1,12 @@
 import "./Image.css";
 import Card from "../Card/Card";
-import { useState, useEffect, FC } from "react";
+import { useState, useEffect, useContext, FC } from "react";
 import { ImageProps } from "../../Interface";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-icons';
+import FavoritesContext from '../../context/favorites-context';
+
 
 const Image = ({ source, favorites, setFavorites }: ImageProps) => {
     const [favorite, setFavorite] = useState(false);
@@ -22,6 +24,7 @@ const Image = ({ source, favorites, setFavorites }: ImageProps) => {
             /* setFavorites((prevFavorites) => {
                 return [...prevFavorites, source];
             }) */
+            localStorage.setItem('favorites', JSON.stringify(favorites));
             setFavorite(true);
         }
     }
