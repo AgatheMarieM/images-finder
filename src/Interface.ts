@@ -1,4 +1,42 @@
-export type SearchEngineProps {
+export interface FavoritesProps {
+    favorites: any[];
+}
+
+export interface FavoritesPageProps {
+    favorites: any[];
+}
+
+export interface PagerProps {
+    favorites: any[];
+}
+
+export interface FinderProps {
+    favorites: any[];
+    setFavorites: any;
+    page: number;
+    setPage: any;
+}
+
+export interface FinderPageProps {
+    favorites: any[];
+    setFavorites: any;
+    page: number;
+    setPage: any;
+}
+
+
+export interface ImagesProps {
+    results: any[];
+
+}
+
+export interface ImageProps {
+    source: string;
+    id: number;
+}
+
+
+export interface SearchEngineProps {
     apiUrl: string;
     page: number;
     query: string;
@@ -7,22 +45,7 @@ export type SearchEngineProps {
     setResults: any;
 }
 
-export type ImagesProps {
-    results: any[];
-    index: number;
-    favorites: any[];
-    setFavorites: any;
-   
-}
-
-export type ImageProps {
-    source: string;
-    id: number;
-    favorites: any[];
-    setFavorites: any;
-}
-
-export type SeeMoreProps {
+export interface SeeMoreProps {
     apiUrl: string;
     results: any[];
     setResults: any;
@@ -31,6 +54,3 @@ export type SeeMoreProps {
     query: string;
 }
 
-export type FavoritesProps {
-    favorites: any[];
-}
