@@ -10,7 +10,6 @@ const Finder: FC = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [searchPage, setSearchPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState<string>("");
-    const [favorites, setFavorites] = useState<string[]>(JSON.parse(localStorage.getItem('favorites') || '[]')); //on init, it is getting either key favorites or empty list      
     const apiKey = `34572071-131273e105e5eb7248557f286`;
     const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${searchQuery}&image_type=photo&order=popular&page=${searchPage}`;
 
@@ -27,8 +26,7 @@ const Finder: FC = () => {
 
             {searchQuery && <Images
                 results={searchResults}
-                favorites={favorites}
-                setFavorites={setFavorites} />
+            />
             }
 
             {searchResults.length > 0 && searchQuery &&
