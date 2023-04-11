@@ -5,26 +5,23 @@ import { ImageProps } from "../../Interface";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-icons';
-import FavoritesContext from '../../context/favorites-context';
+import { useFavoritesContext } from '../../context/favorites-context';
 
 
-const Image = ({ source, favorites, setFavorites }: ImageProps) => {
-    const [favorite, setFavorite] = useState(false);
 
-    useEffect(() => {
-        setFavorite(false)
-    }, [source])
+const Image = ({ id, source }: ImageProps) => {
+    const { favorites, setFavorites } = useFavoritesContext();
+    //destructuring object returned by the hook
+
+    const [favorite, setFavorite] = useState<boolean>(favorites.some(e => e.id === id));
+    //some devolve boolean. Checking if favorite is true || false on first load
 
     function toggleIcon() {
         if (favorite) {
-            setFavorites(favorites.filter((fav) => fav !== source));
+            setFavorites(favorites.filter((fav) => fav.id !== id));
             setFavorite(false);
         } else {
-            setFavorites([...favorites, source]);
-            /* setFavorites((prevFavorites) => {
-                return [...prevFavorites, source];
-            }) */
-            localStorage.setItem('favorites', JSON.stringify(favorites));
+            setFavorites([...favorites, { 'id': id, 'source': source }]);
             setFavorite(true);
         }
     }
