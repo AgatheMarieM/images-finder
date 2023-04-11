@@ -1,23 +1,29 @@
 import './Favorites.css';
 import Pager from '../Pager/Pager';
-import { FavoritesProps } from "../../Interface";
-import FavoritesContext from '../../context/favorites-context';
-import { useContext } from 'react';
+import Image from '../Image/Image';
+import { useFavoritesContext } from '../../context/favorites-context';
 
+const Favorites = () => {
+    const { favorites } = useFavoritesContext();
 
-
-const Favorites = ({ favorites }: FavoritesProps) => {
-    const ctx = useContext(FavoritesContext);
     return (
-   
-            <div className='Favorites'>
-                <h2>
-                    Favorite images
-                </h2>
-                <p>{ctx.favorites}</p>
-                <Pager />
+        <div className='Favorites'>
+            <h2>
+                Favorite images
+            </h2>
+            <div>
+                {favorites.map(favorite => {
+                    return (
+                        <Image
+                            id={favorite.id}
+                            key={favorite.id}
+                            source={favorite.source}
+                        />
+                    )
+                })}
             </div>
-       
+            <Pager />
+        </div>
     )
 }
 
