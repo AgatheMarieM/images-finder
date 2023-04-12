@@ -1,8 +1,8 @@
 import Image from "../Image/Image";
 import { ImagesWrapper } from "./Images.styles";
-import { ImagesProps } from "../../Interface";
+import { IImagesProps } from "./Images.types";
 
-const Images = ({ results }: ImagesProps) => {
+const Images = ({ results }: IImagesProps) => {
     return (
         <ImagesWrapper data-testid="images-box" >
             {results.map((result) => {
