@@ -1,6 +1,3 @@
-export interface FavoritesProps {
-    favorites: any[];
-}
 
 export interface FavoritesPageProps {
     favorites: any[];
