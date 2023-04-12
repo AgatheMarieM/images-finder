@@ -1,10 +1,16 @@
-import "./Footer.css";
+import { FooterWrapper } from "./Footer.styles";
 
 const Footer = () => {
     return (
-        <div className="Footer">
-            <p >All photos from <a href="https://pixabay.com" target={"_blank"}>https://pixabay.com</a></p>
-        </div>
+        <FooterWrapper>
+            <p >All photos from:
+                <a href="https://pixabay.com"
+                    target={"_blank"}
+                    rel="noopener noreferrer">
+                    https://pixabay.com
+                </a>
+            </p>
+        </FooterWrapper>
     )
 }
 
