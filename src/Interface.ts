@@ -30,12 +30,6 @@ export interface ImagesProps {
 
 }
 
-export interface ImageProps {
-    source: string;
-    id: number;
-}
-
-
 export interface SearchEngineProps {
     apiUrl: string;
     page: number;
