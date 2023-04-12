@@ -1,11 +1,10 @@
 import Image from "../Image/Image";
-import "./Images.css";
-
+import { ImagesWrapper } from "./Images.styles";
 import { ImagesProps } from "../../Interface";
 
 const Images = ({ results }: ImagesProps) => {
     return (
-        <div className="images" data-testid="images-box" >
+        <ImagesWrapper data-testid="images-box" >
             {results.map((result) => {
                 return (
                     <Image
@@ -14,7 +13,7 @@ const Images = ({ results }: ImagesProps) => {
                     />
                 )
             })}
-        </div>
+        </ImagesWrapper>
     )
 }
 
