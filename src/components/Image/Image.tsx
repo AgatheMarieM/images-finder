@@ -1,6 +1,6 @@
 import "./Image.css";
 import { useState } from "react";
-import { ImageProps } from "../../Interface";
+import { IImageProps } from "./Image.types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-icons';
@@ -13,7 +13,7 @@ import {
 } from './Image.styles';
 
 
-const Image = ({ id, source }: ImageProps) => {
+const Image = ({ id, source }: IImageProps) => {
     const { favorites, setFavorites } = useFavoritesContext();
     //destructuring object returned by the hook
 
