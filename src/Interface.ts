@@ -21,12 +21,6 @@ export interface FinderPageProps {
     setPage: any;
 }
 
-
-export interface ImagesProps {
-    results: any[];
-
-}
-
 export interface SearchEngineProps {
     apiUrl: string;
     page: number;
