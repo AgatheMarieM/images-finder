@@ -1,12 +1,16 @@
 import "./Image.css";
-import Card from "../Card/Card";
-import { useState, useEffect, useContext, FC } from "react";
+import { useState } from "react";
 import { ImageProps } from "../../Interface";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faBookmarkSolid } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as faBookmarkRegular } from '@fortawesome/free-regular-svg-icons';
 import { useFavoritesContext } from '../../context/favorites-context';
-
+import Card from "../Card/Card";
+import {
+    ImageBox,
+    ImageWatermark,
+    BookmarkIcon
+} from './Image.styles';
 
 
 const Image = ({ id, source }: ImageProps) => {
@@ -27,11 +31,13 @@ const Image = ({ id, source }: ImageProps) => {
     }
 
     return (
-        <Card className="image-container">
-            <div className="image" data-testid="image" style={{ backgroundImage: `url(${source})` }}>
-                <a className="subtitle" href={source} target="_blank">© Pixabay</a>
-                <FontAwesomeIcon className="bookmark-icon" onClick={toggleIcon} icon={favorite ? faBookmarkSolid : faBookmarkRegular} />
-            </div>
+        <Card>
+            <ImageBox data-testid="image" style={{ backgroundImage: `url(${source})` }}>
+                <ImageWatermark href={source} target="_blank">© Pixabay</ImageWatermark>
+                <BookmarkIcon>
+                    <FontAwesomeIcon onClick={toggleIcon} icon={favorite ? faBookmarkSolid : faBookmarkRegular} />
+                </BookmarkIcon>
+            </ImageBox>
         </Card>
     )
 }
