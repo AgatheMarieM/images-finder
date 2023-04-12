@@ -1,4 +1,3 @@
-import "./Image.css";
 import { useState } from "react";
 import { IImageProps } from "./Image.types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
