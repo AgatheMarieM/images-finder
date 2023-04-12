@@ -1,17 +1,22 @@
-import './Favorites.css';
 import Pager from '../Pager/Pager';
 import Image from '../Image/Image';
+import { IFavoritesProps } from './Favorites.types';
 import { useFavoritesContext } from '../../context/favorites-context';
+import {
+    FavoritesWrapper,
+    FavoritesImages,
+    FavoritesTitle
+} from './Favorites.styles';
 
 const Favorites = () => {
     const { favorites } = useFavoritesContext();
 
     return (
-        <div className='Favorites'>
-            <h2>
-                Favorite images
-            </h2>
-            <div>
+        <FavoritesWrapper>
+            <FavoritesTitle>
+                Favorite Images
+            </FavoritesTitle>
+            <FavoritesImages>
                 {favorites.map(favorite => {
                     return (
                         <Image
@@ -21,9 +26,9 @@ const Favorites = () => {
                         />
                     )
                 })}
-            </div>
+            </FavoritesImages>
             <Pager />
-        </div>
+        </FavoritesWrapper>
     )
 }
 
