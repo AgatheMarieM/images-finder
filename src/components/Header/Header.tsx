@@ -1,10 +1,10 @@
-import "./Header.css";
 import { FC } from "react";
+import { HeaderTitle } from './Header.styles'
 
 
- const Header: FC = () => {
+const Header: FC = () => {
     return (
-        <h3>Images Finder</h3>
+        <HeaderTitle>Images Finder</HeaderTitle>
     )
 }
 
